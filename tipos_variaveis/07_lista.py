@@ -53,3 +53,21 @@ minha_lista = [1, 10, 3, 3, 5, 6, 7, 8, 112]
 print(minha_lista)
 minha_lista.sort()
 print("Após sort()", minha_lista)
+
+# Resposta do código executado no terminal
+
+# Minha lista de exemplo:  [5, 1, 4, 'Maria', True, False]
+# minha_lista[0]: 5
+# minha_lista[3]: Maria
+# minha_lista[1:5]: [1, 4, 'Maria', True]
+# minha_lista[:4]: [5, 1, 4, 'Maria']
+# minha_lista[2:]: [4, 'Maria', True, False]
+# ['python', 1, 4, 'Maria', True, False]
+# Após append(6) ['python', 1, 4, 'Maria', True, False, 6]
+# Indice do elemento Maria: 3
+# Após o índice indicado(3) insert(João) minha_lista.insert(3, 'João'): ['python', 1, 4, 'João', 'Maria', True, False, 6]
+# Elemento removido: João
+# Após pop(3): ['python', 1, 4, 'Maria', True, False, 6]
+# Após remove(True): ['python', 4, 'Maria', True, False, 6]
+# [1, 10, 3, 3, 5, 6, 7, 8, 112]
+# Após sort() [1, 3, 3, 5, 6, 7, 8, 10, 112]
