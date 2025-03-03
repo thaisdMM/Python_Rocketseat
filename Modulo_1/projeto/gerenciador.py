@@ -13,10 +13,10 @@ def adicionar_tarefa(tarefas, nome_tarefa):
 
 def ver_tarefas(tarefas):
    print("\n Lista de tarefas: ")
-   print(tarefas)
-   # valores = list(tarefas.values())
-   # print("As tarefas que foram adicionadas a Lista de tarefas são: ", valores)
-   # return
+   for indice, tarefa in enumerate(tarefas):
+      status = "✓" if tarefa["completada"] else " "
+      nome_tarefa = tarefa["tarefa"]
+      print(f"{indice}. [{status}] : {nome_tarefa}")
 
 tarefas = []   
 
@@ -46,9 +46,4 @@ while True:
       break
       
 print("Programa finalizado")
-
-# def adicionarTarefa(newTask):
-#    listaTarefas = newTask
-#    return listaTarefas
-
 
