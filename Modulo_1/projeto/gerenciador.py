@@ -5,11 +5,18 @@ def adicionar_tarefa(tarefas, nome_tarefa):
    # chave: tarefa: nome da tarefa 
    # chave completada: indicar se essa tarefa já foi completada ou não(4,5 do menu)
    # Como temos 1 ou mais informações vamos usar o dict
-   tarefa = {"tarefa": "nome_tarefa", "completada": False} #como está inserindo, em primeiro momento completada é sempre False
+   tarefa = {"tarefa": nome_tarefa, "completada": False} #como está inserindo, em primeiro momento completada é sempre False
    tarefas.append(tarefa)
    # tarefas.append({"tarefa": "nome_tarefa", "completada": False}) > mesmo código acima
-   print(f"A tarefa {nome_tarefa} foi adicionada com sucesso!")
+   print(f"\nA tarefa {nome_tarefa} foi adicionada com sucesso!")
    return
+
+def ver_tarefas(tarefas):
+   print("\n Lista de tarefas: ")
+   print(tarefas)
+   # valores = list(tarefas.values())
+   # print("As tarefas que foram adicionadas a Lista de tarefas são: ", valores)
+   # return
 
 tarefas = []   
 
@@ -28,7 +35,9 @@ while True:
    if escolha == "1":
       nome_tarefa = input("Digite o nome da tarefa que deseja adicionar: ")
       adicionar_tarefa(tarefas, nome_tarefa)
-
+   
+   elif escolha == "2":
+      ver_tarefas(tarefas)
 
 
 
