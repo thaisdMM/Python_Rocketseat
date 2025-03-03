@@ -21,9 +21,20 @@ def ver_tarefas(tarefas):
 
 def atualizar_nome_tarefas(tarefas, indice_tarefa, novo_nome_tarefa):
    indice_tarefa_ajustado = int(indice_tarefa) -1 #porque com o start=1 começa no 1, mas na verdade a tarefa começa com 0 - dá erro se nao converter para int
-   tarefas[indice_tarefa_ajustado] ["tarefa"] = novo_nome_tarefa
-   print(f"Tarefa {indice_tarefa} atualizada para {novo_nome_tarefa} com sucesso!")
+   #esse if abaixo é para tratar casos os numeros digitados das tarefas sao maiores ou menores que os existentes
+   if indice_tarefa_ajustado >= 0 and indice_tarefa_ajustado <len(tarefas):
+      tarefas[indice_tarefa_ajustado] ["tarefa"] = novo_nome_tarefa
+      print(f"Tarefa {indice_tarefa} atualizada para {novo_nome_tarefa} com sucesso!")
+   else:
+      print("Índice de tarefa inválido.")
+   return
 
+def completar_tarefa(tarefas, indice_tarefa, indice_tarefa_completa):
+   indice_tarefa_ajustado = int(indice_tarefa) -1
+   # indice_tarefa_ajustado >= 0 and indice_tarefa_ajustado <len(tarefas)
+
+   tarefas[indice_tarefa_ajustado] ["completada"] = indice_tarefa_completa
+   print(f"Tarefa {indice_tarefa} completada {indice_tarefa_completa}")
    return
 
 tarefas = []   
@@ -50,9 +61,16 @@ while True:
    elif escolha == "3":
       ver_tarefas(tarefas)
       indice_tarefas = input("Digite o número do índice da tarefa que deseja atualizar: ")
-
       novo_nome_tarefa = input("Digite o novo nome da tarefa: ")
       atualizar_nome_tarefas(tarefas, indice_tarefas, novo_nome_tarefa)
+   
+   elif escolha == "4":
+      ver_tarefas(tarefas)
+      indice_tarefa = input("Digite o número do índice da tarefa que deseja completar: ")
+      indice_tarefa_completa = print("Essas são as tarefas completas: ")
+      completar_tarefa(tarefas, indice_tarefa, indice_tarefa_completa)
+
+
 
    elif  escolha == "6":
       break
