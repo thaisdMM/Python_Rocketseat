@@ -5,8 +5,8 @@ def adicionar_tarefa(tarefas, nome_tarefa):
    # chave: tarefa: nome da tarefa 
    # chave completada: indicar se essa tarefa já foi completada ou não(4,5 do menu)
    # Como temos 1 ou mais informações vamos usar o dict
-   tarefas = {"tarefa": "nome_tarefa", "completada": False} #como está inserindo, em primeiro momento completada é sempre False
-   tarefas.append(tarefas)
+   tarefa = {"tarefa": "nome_tarefa", "completada": False} #como está inserindo, em primeiro momento completada é sempre False
+   tarefas.append(tarefa)
    # tarefas.append({"tarefa": "nome_tarefa", "completada": False}) > mesmo código acima
    print(f"A tarefa {nome_tarefa} foi adicionada com sucesso!")
    return
@@ -26,13 +26,14 @@ while True:
    escolha = input("Digite a sua escolha:")
 
    if escolha == "1":
-      
+      nome_tarefa = input("Digite o nome da tarefa que deseja adicionar: ")
+      adicionar_tarefa(tarefas, nome_tarefa)
 
 
 
 
 
-   if  escolha == "6":
+   elif  escolha == "6":
       break
       
 print("Programa finalizado")
