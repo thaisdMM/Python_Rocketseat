@@ -38,7 +38,11 @@ def completar_tarefa(tarefas, indice_tarefa):
       print("Índice de tarefa inválido.")
    return
 
-def deletar_tarefa(tarefas, indice_tarefa):
+def deletar_tarefa_completadas(tarefas): 
+   for tarefa in tarefas:
+      if tarefa["completada"]:
+         tarefas.remove(tarefa)
+   print("Tarefas completadas foram deletadas.")
    return
 
 tarefas = []   
@@ -50,7 +54,7 @@ while True:
    print("2. Ver tarefas")
    print("3. Atualizar tarefa")
    print("4. Completar tarefa")
-   print("5. Deletar tarefa")
+   print("5. Deletar tarefas completadas")
    print("6. Sair")
 
    escolha = input("Digite a sua escolha:")
@@ -74,9 +78,8 @@ while True:
       completar_tarefa(tarefas, indice_tarefa)
 
    elif escolha == "5":
+      deletar_tarefa_completadas(tarefas)
       ver_tarefas(tarefas)
-      indice_tarefa = input("Digite o número do índice da tarefa que deseja deletar: ")
-      deletar_tarefa(tarefas, indice_tarefa)
 
    elif  escolha == "6":
       break
