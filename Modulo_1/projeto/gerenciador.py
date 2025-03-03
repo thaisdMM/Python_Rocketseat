@@ -13,7 +13,7 @@ def adicionar_tarefa(tarefas, nome_tarefa):
 
 def ver_tarefas(tarefas):
    print("\n Lista de tarefas: ")
-   for indice, tarefa in enumerate(tarefas):
+   for indice, tarefa in enumerate(tarefas, start=1): #start=1 para contar do 1 e nao do 0 como de praxe em listas
       status = "✓" if tarefa["completada"] else " "
       nome_tarefa = tarefa["tarefa"]
       print(f"{indice}. [{status}] : {nome_tarefa}")
