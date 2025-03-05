@@ -29,14 +29,20 @@
 # Deve ser possível apagar um contato
 
 def adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_contato):
-   novo_contato = {"nome": nome_contato,"telefone": telefone_contato, "email": email_contato}
+   novo_contato = {"nome": nome_contato,"telefone": telefone_contato, "email": email_contato, "favorito": False}
 
    lista_contatos.append(novo_contato)
    print(f"\nO novo contato {nome_contato} adicionado a agenda com sucesso!")
    return
 
 def ver_contatos(lista_contatos):
-   print("\n Lista de contatos:", lista_contatos)
+   print("\n Lista de contatos: ")
+   for indice, novo_contato in enumerate(lista_contatos, start=1):
+      status = "★" if novo_contato["favorito"] else " "
+      nome_contato = novo_contato["nome"]
+      telefone_contato = novo_contato["telefone"]
+      email_contato = novo_contato["email"]
+      print(f"{indice}. [{status}] : {nome_contato}, {telefone_contato}, {email_contato} ")
    
    return
 
