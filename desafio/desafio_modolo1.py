@@ -5,9 +5,10 @@
 
 # A aplicação deve iniciar mostrando uma lista de opções do que é possível fazer com o app e permitir que o usuário digite uma escolha para iniciar a aplicação.
 
-# Deve ser possível adicionar um contato
+# Deve ser possível adicionar um contato 
+#> tem que poder ser vazio acho que tinha um codigo=
 
-# O contato pode ter os dados: é um dict
+# O contato pode ter os dados: é um dict 
 
 # Nome
 
@@ -27,9 +28,15 @@
 
 # Deve ser possível apagar um contato
 
+def adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_contato):
+   novo_contato = {"nome": nome_contato,"telefone": telefone_contato, "email": email_contato}
+
+   novo_contato.update(lista_contatos)
+   print(f"\nO novo contato {nome_contato} adicionado a agenda com sucesso!")
+   return
 
 
-litas_contatos = []
+lista_contatos = []
 
 while True:
    print("\nMenu do app Agenda:")
@@ -44,7 +51,14 @@ while True:
    
    escolha = input("Digite sua escolha: ")
 
-   if escolha == "8":
+   if escolha == "1":
+      nome_contato = input("Digite o nome do novo contato: ")
+      telefone_contato = input("Digite o telefone do novo contato: ")
+      email_contato = input("Digite o e-mail do novo contato")
+      adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_contato)
+
+
+   elif escolha == "8":
       break
 
 print("Programa finalizado!")
