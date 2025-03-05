@@ -35,6 +35,8 @@ def adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_conta
    print(f"\nO novo contato {nome_contato} adicionado a agenda com sucesso!")
    return
 
+def ver_contatos(lista_contatos):
+   return
 
 lista_contatos = []
 
@@ -57,6 +59,8 @@ while True:
       email_contato = input("Digite o e-mail do novo contato")
       adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_contato)
 
+   if escolha == "2":
+      ver_contatos(lista_contatos)   
 
    elif escolha == "8":
       break
