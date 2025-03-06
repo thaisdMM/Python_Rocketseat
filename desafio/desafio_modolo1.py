@@ -47,11 +47,11 @@ def ver_contatos(lista_contatos):
 
 def editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_contato, novo_email_contato):
    indice_contato_ajustado = int(indice_contato) -1
-   if indice_contato_ajustado <= 0 and indice_contato_ajustado <len(lista_contatos):
+   if indice_contato_ajustado >= 0 and indice_contato_ajustado <len(lista_contatos):
       lista_contatos[indice_contato_ajustado] ["nome"] = novo_contato
       lista_contatos[indice_contato_ajustado] ["telefone"] = novo_telefone_contato
       lista_contatos[indice_contato_ajustado] ["email"] = novo_email_contato
-      print(f"O contato {nome_contato} foi atualizado para {novo_contato} com sucesso!")
+      print(f"O contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
    else:
       print("Número de contato inválido.")
    return
