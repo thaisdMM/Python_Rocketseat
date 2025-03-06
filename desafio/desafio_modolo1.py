@@ -83,8 +83,11 @@ while True:
    
    if escolha =="3":
       ver_contatos(lista_contatos)
-
-      editar_contato(lista_contatos)
+      indice_contato = input("\nDigite o número do indice do contato que deseja atualizar: ")
+      novo_contato = input("Digite o novo nome do contato: ")
+      novo_telefone_contato = input("Digite o novo telefone do contato: ")
+      novo_email_contato = input("Digite o novo email do contato: ")
+      editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_contato, novo_email_contato)
 
    elif escolha == "8":
       break
