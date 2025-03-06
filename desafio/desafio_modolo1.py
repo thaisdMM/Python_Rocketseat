@@ -56,19 +56,22 @@ def editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_c
       print("Número de contato inválido.")
    return
 
+def marcar_contato_favorito(lista_contatos):
+   return
+
 
 lista_contatos = []
 
 while True:
    print("\nMenu do app Agenda:")
    print("\n1. Adicionar um contato.")
-   print("2. Visualizar a lista de contatos.")
-   print("3. Editar um contato da lista de contatos.")
-   print("4. Ver a lista de contatos favoritos.")
-   print("5. Marcar um contato como favorito.")
-   print("6. Desmarcar um contato na lista de favoritos.")
-   print("7. Apagar um contato da lista de contatos.")
-   print("8. Sair da agenda.\n")
+   print("\n2. Visualizar a lista de contatos.")
+   print("\n3. Editar um contato da lista de contatos.")
+   print("\n4. Marcar um contato como favorito.")      
+   print("\n5. Ver a lista de contatos favoritos.")
+   print("\n6. Desmarcar um contato na lista de favoritos.")
+   print("\n7. Apagar um contato da lista de contatos.")
+   print("\n8. Sair da agenda.\n")
    
    escolha = input("Digite sua escolha: ")
 
@@ -78,16 +81,21 @@ while True:
       email_contato = input("Digite o e-mail do contato: ")
       adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_contato)
 
-   if escolha == "2":
+   elif escolha == "2":
       ver_contatos(lista_contatos)
    
-   if escolha =="3":
+   elif escolha == "3":
       ver_contatos(lista_contatos)
       indice_contato = input("\nDigite o número do indice do contato que deseja atualizar: ")
       novo_contato = input("Digite o novo nome do contato: ")
       novo_telefone_contato = input("Digite o novo telefone do contato: ")
       novo_email_contato = input("Digite o novo email do contato: ")
       editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_contato, novo_email_contato)
+
+   elif escolha == "4":
+      ver_contatos(lista_contatos)
+      marcar_contato_favorito(lista_contatos)
+
 
    elif escolha == "8":
       break
