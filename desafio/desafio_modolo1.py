@@ -37,12 +37,12 @@ def adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_conta
 
 def ver_contatos(lista_contatos):
    print("\n Lista de contatos: ")
-   for indice_contato, contato in enumerate(lista_contatos, start=1):
+   for indice, contato in enumerate(lista_contatos, start=1):
       status = "★" if contato["favorito"] else " "
       nome_contato = contato["nome"]
       telefone_contato = contato["telefone"]
       email_contato = contato["email"]
-      print(f"{indice_contato}. [{status}] : {nome_contato}, {telefone_contato}, {email_contato} ")
+      print(f"{indice}. [{status}] : {nome_contato}, {telefone_contato}, {email_contato} ")
    return
 
 def editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_contato, novo_email_contato):
