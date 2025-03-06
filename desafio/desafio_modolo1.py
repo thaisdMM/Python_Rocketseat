@@ -43,8 +43,11 @@ def ver_contatos(lista_contatos):
       telefone_contato = novo_contato["telefone"]
       email_contato = novo_contato["email"]
       print(f"{indice}. [{status}] : {nome_contato}, {telefone_contato}, {email_contato} ")
-   
    return
+
+def editar_contato(lista_contatos):
+   return
+
 
 lista_contatos = []
 
@@ -68,9 +71,12 @@ while True:
       adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_contato)
 
    if escolha == "2":
-      ver_contatos(lista_contatos)   
+      ver_contatos(lista_contatos)
+   
+   if escolha =="3":
+      editar_contato(lista_contatos)
 
    elif escolha == "8":
       break
 
-print("Programa finalizado!")
+print("\nPrograma finalizado!")
