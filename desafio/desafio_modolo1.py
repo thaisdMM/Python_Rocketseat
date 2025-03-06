@@ -66,9 +66,14 @@ def marcar_contato_favorito(lista_contatos):
    return
 
 def ver_contatos_favoritos(lista_contatos):
+   print("\nLista de contatos favoritos: ")
    for contato in lista_contatos:
       if contato ["favorito"] == True:
-         print([lista_contatos] ["favorito"])
+         status = "★"
+         print(f"{indice_contato}. {status} : {nome_contato},{telefone_contato, {email_contato}} ")
+      else:
+         if contato ["favorito"] == " ":
+            print("Não há contatos favoritos.")
    return
 
 
