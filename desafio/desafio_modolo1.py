@@ -32,7 +32,7 @@ def adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_conta
    contato = {"nome": nome_contato,"telefone": telefone_contato, "email": email_contato, "favorito": False}
 
    lista_contatos.append(contato)
-   print(f"\nO contato {nome_contato} adicionado a agenda com sucesso!")
+   print(f"\nO contato {nome_contato} foi adicionado a agenda com sucesso!")
    return
 
 def ver_contatos(lista_contatos):
@@ -51,13 +51,26 @@ def editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_c
       lista_contatos[indice_contato_ajustado] ["nome"] = novo_contato
       lista_contatos[indice_contato_ajustado] ["telefone"] = novo_telefone_contato
       lista_contatos[indice_contato_ajustado] ["email"] = novo_email_contato
-      print(f"O contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
+      print(f"\nO contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
    else:
-      print("Número de contato inválido.")
+      print("\nNúmero de contato inválido ou não existe.")
    return
 
 def marcar_contato_favorito(lista_contatos):
+   indice_contato_ajustado = int(indice_contato) -1
+   if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos):
+      lista_contatos[indice_contato_ajustado] ["favorito"] = True
+      print(f"\nO contato {indice_contato} foi marcado como favorito!")
+   else:
+      print("\nNúmero de contato inválido ou não existe.")
    return
+
+def ver_contatos_favoritos(lista_contatos):
+   for contato in lista_contatos:
+      if contato ["favorito"] == True:
+         print([lista_contatos] ["favorito"])
+   return
+
 
 
 lista_contatos = []
@@ -65,18 +78,18 @@ lista_contatos = []
 while True:
    print("\nMenu do app Agenda:")
    print("\n1. Adicionar um contato.")
-   print("\n2. Visualizar a lista de contatos.")
-   print("\n3. Editar um contato da lista de contatos.")
-   print("\n4. Marcar um contato como favorito.")      
-   print("\n5. Ver a lista de contatos favoritos.")
-   print("\n6. Desmarcar um contato na lista de favoritos.")
-   print("\n7. Apagar um contato da lista de contatos.")
-   print("\n8. Sair da agenda.\n")
+   print("2. Visualizar a lista de contatos.")
+   print("3. Editar um contato da lista de contatos.")
+   print("4. Marcar um contato como favorito.")      
+   print("5. Ver a lista de contatos favoritos.")
+   print("6. Desmarcar um contato na lista de favoritos.")
+   print("7. Apagar um contato da lista de contatos.")
+   print("8. Sair da agenda.\n")
    
    escolha = input("Digite sua escolha: ")
 
    if escolha == "1":
-      nome_contato = input("Digite o nome do contato: ")
+      nome_contato = input("\nDigite o nome do contato: ")
       telefone_contato = input("Digite o telefone do contato: ")
       email_contato = input("Digite o e-mail do contato: ")
       adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_contato)
@@ -94,8 +107,11 @@ while True:
 
    elif escolha == "4":
       ver_contatos(lista_contatos)
+      indice_contato = input("\nDigite o número do indice do contato que deseja marcar como favorito: ")
       marcar_contato_favorito(lista_contatos)
 
+   elif escolha == "5":
+      ver_contatos_favoritos(lista_contatos)
 
    elif escolha == "8":
       break
