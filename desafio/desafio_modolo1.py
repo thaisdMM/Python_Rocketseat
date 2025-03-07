@@ -78,7 +78,13 @@ def ver_contatos_favoritos(lista_contatos):
       print("Não há contatos marcados como favoritos.")
    return
 
-def desmarcar_contato_favorito(lista_contatos):
+def desmarcar_contato_favorito(lista_contatos, indice_contato, status):
+   indice_contato_ajustado = int(indice_contato) -1
+   status = "★"
+   if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos):
+      indice_contato_ajustado[indice_contato_ajustado] ["favorito"] = True
+   status = " "
+   print(f"O contato {indice_contato} {status}foi desmarcado como favorito!")
    return
 
 
@@ -123,7 +129,8 @@ while True:
       ver_contatos_favoritos(lista_contatos)
    
    elif escolha == "6":
-      desmarcar_contato_favorito(lista_contatos)
+      desmarcar_contato_favorito(lista_contatos, indice_contato)
+      status = "★"
       ver_contatos_favoritos(lista_contatos)
 
    elif escolha == "8":
