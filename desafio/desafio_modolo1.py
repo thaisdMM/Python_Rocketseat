@@ -84,10 +84,19 @@ def desmarcar_contato_favorito(lista_contatos, indice_contato):
          lista_contatos[indice_contato_ajustado] ["favorito"] = False
          print(f"O contato {indice_contato} foi desmarcado como favorito!")   
    else:
-      print("Número de contato inválido ou nao exite")         
+      print("Número de contato inválido ou nao exite.")         
    return
 
 def apagar_contato(lista_contatos, indice_contato):
+   indice_contato_ajustado = int(indice_contato) -1
+   if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos):
+      for contato in lista_contatos:
+         if indice_contato:
+            lista_contatos.remove(contato)
+            print(f"O contato {indice_contato} foi apagado com sucesso!")
+
+   else:
+      print("Número do contato iválido ou não existe.")
    return
 
 lista_contatos = []
@@ -140,7 +149,7 @@ while True:
    elif escolha == "7":
       ver_contatos(lista_contatos)
       indice_contato = input("Digite o número do contato que deseja apagar: ")
-      def apagar_contato(lista_contatos, indice_contato):
+      apagar_contato(lista_contatos, indice_contato)
 
    elif escolha == "8":
       break
