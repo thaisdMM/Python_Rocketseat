@@ -65,19 +65,20 @@ def marcar_contato_favorito(lista_contatos):
       print("\nNúmero de contato inválido ou não existe.")
    return
 
-def ver_contatos_favoritos(lista_contatos):
+def ver_contatos_favoritos(lista_contatos, lista_contatos_favoritos):
    print("\nLista de contatos favoritos: ")
-   for contato in lista_contatos:
+   for indice, contato in enumerate(lista_contatos, start=1):
       if contato ["favorito"] == True:
-         status = "★"
-         print(f"{indice_contato}. {status} : {nome_contato},{telefone_contato, {email_contato}} ")
-      else:
-         if contato ["favorito"] == " ":
-            print("Não há contatos favoritos.")
-   return
+         lista_contatos_favoritos == contato
+         status= "★"
+         nome_contato = contato["nome"]
+         telefone_contato = contato["telefone"]
+         email_contato = contato["email"]
+         print(f"{indice}. {status}: {nome_contato},{telefone_contato}, {email_contato} ")
+      return
 
 
-
+lista_contatos_favoritos = []
 lista_contatos = []
 
 while True:
@@ -116,7 +117,7 @@ while True:
       marcar_contato_favorito(lista_contatos)
 
    elif escolha == "5":
-      ver_contatos_favoritos(lista_contatos)
+      ver_contatos_favoritos(lista_contatos, lista_contatos_favoritos)
 
    elif escolha == "8":
       break
