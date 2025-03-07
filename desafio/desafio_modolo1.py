@@ -78,6 +78,9 @@ def ver_contatos_favoritos(lista_contatos):
       print("Não há contatos marcados como favoritos.")
    return
 
+def desmarcar_contato_favorito(lista_contatos):
+   return
+
 
 lista_contatos = []
 
@@ -117,6 +120,10 @@ while True:
       marcar_contato_favorito(lista_contatos, indice_contato)
 
    elif escolha == "5":
+      ver_contatos_favoritos(lista_contatos)
+   
+   elif escolha == "6":
+      desmarcar_contato_favorito(lista_contatos)
       ver_contatos_favoritos(lista_contatos)
 
    elif escolha == "8":
