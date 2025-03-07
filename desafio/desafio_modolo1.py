@@ -56,7 +56,7 @@ def editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_c
       print("\nNúmero de contato inválido ou não existe.")
    return
 
-def marcar_contato_favorito(lista_contatos):
+def marcar_contato_favorito(lista_contatos, indice_contato):
    indice_contato_ajustado = int(indice_contato) -1
    if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos):
       lista_contatos[indice_contato_ajustado] ["favorito"] = True
@@ -65,20 +65,18 @@ def marcar_contato_favorito(lista_contatos):
       print("\nNúmero de contato inválido ou não existe.")
    return
 
-def ver_contatos_favoritos(lista_contatos, lista_contatos_favoritos):
+def ver_contatos_favoritos(lista_contatos):
    print("\nLista de contatos favoritos: ")
    for indice, contato in enumerate(lista_contatos, start=1):
       if contato ["favorito"] == True:
-         lista_contatos_favoritos == contato
          status= "★"
          nome_contato = contato["nome"]
          telefone_contato = contato["telefone"]
          email_contato = contato["email"]
          print(f"{indice}. {status}: {nome_contato},{telefone_contato}, {email_contato} ")
-      return
+   return
 
 
-lista_contatos_favoritos = []
 lista_contatos = []
 
 while True:
@@ -114,10 +112,10 @@ while True:
    elif escolha == "4":
       ver_contatos(lista_contatos)
       indice_contato = input("\nDigite o número do indice do contato que deseja marcar como favorito: ")
-      marcar_contato_favorito(lista_contatos)
+      marcar_contato_favorito(lista_contatos, indice_contato)
 
    elif escolha == "5":
-      ver_contatos_favoritos(lista_contatos, lista_contatos_favoritos)
+      ver_contatos_favoritos(lista_contatos)
 
    elif escolha == "8":
       break
