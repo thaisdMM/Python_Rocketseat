@@ -56,6 +56,7 @@ def editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_c
       print("\nNúmero de contato inválido ou não existe.")
    return
 
+#melhoria: nao permirtir marcar novamente um contato que já está marcado como favorito
 def marcar_contato_favorito(lista_contatos, indice_contato):
    indice_contato_ajustado = int(indice_contato) -1
    if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos):
@@ -71,11 +72,7 @@ def ver_contatos_favoritos(lista_contatos):
    for indice, contato in enumerate(lista_contatos, start=1):      
       if contato ["favorito"]: 
          tem_favoritos = True
-         status= "★"
-         nome_contato = contato["nome"]
-         telefone_contato = contato["telefone"]
-         email_contato = contato["email"]
-         print(f"{indice}. {status}: {nome_contato},{telefone_contato}, {email_contato} ")
+         print(f"{indice}. ★ : {contato['nome']}, {contato['telefone']}, {contato['email']}")
    
    if not tem_favoritos:
       print("Não há contatos marcados como favoritos.")
