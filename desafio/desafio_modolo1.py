@@ -31,8 +31,11 @@
 def adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_contato):
    contato = {"nome": nome_contato,"telefone": telefone_contato, "email": email_contato, "favorito": False}
 
-   lista_contatos.append(contato)
-   print(f"\nO contato {nome_contato} foi adicionado a agenda com sucesso!")
+   if not nome_contato or nome_contato == " ":
+      print("\nO nome do contato nao pode ser vazio!")
+   else:
+      lista_contatos.append(contato)
+      print(f"\nO contato {nome_contato} foi adicionado a agenda com sucesso!")
    return
 
 def ver_contatos(lista_contatos):
@@ -115,9 +118,9 @@ while True:
    escolha = input("Digite sua escolha: ")
 
    if escolha == "1":
-      nome_contato = input("\nDigite o nome do contato: ")
-      telefone_contato = input("Digite o telefone do contato: ")
-      email_contato = input("Digite o e-mail do contato: ")
+      nome_contato = input("\nDigite o nome do contato: ").strip()
+      telefone_contato = input("Digite o telefone do contato: ").strip()
+      email_contato = input("Digite o e-mail do contato: ").strip()
       adiciona_contato(lista_contatos, nome_contato, telefone_contato, email_contato)
 
    elif escolha == "2":
