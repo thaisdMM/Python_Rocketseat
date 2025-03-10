@@ -19,19 +19,25 @@ def ver_contatos(lista_contatos):
    return
 
 def editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_contato, novo_email_contato):
-   indice_contato_ajustado = int(indice_contato) -1
-   if indice_contato_ajustado >= 0 and indice_contato_ajustado <len(lista_contatos):
-
-      if not novo_contato or novo_contato == " ":
-         print("\nO nome do novo contato não pode ser vazio!")
-      else:
-         lista_contatos[indice_contato_ajustado] ["nome"] = novo_contato
-         lista_contatos[indice_contato_ajustado] ["telefone"] = novo_telefone_contato
-         lista_contatos[indice_contato_ajustado] ["email"] = novo_email_contato
-         print(f"\nO contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
-
-   else:
+   indice_contato_ajustado = (int(indice_contato) -1)
+   if indice_contato_ajustado < 0 or indice_contato_ajustado >=len(lista_contatos):
       print("\nNúmero de contato inválido ou não existe.")
+      print("PAROU NO IF")
+      return
+   
+   print("parou depois do retur 1")
+   if not novo_contato or novo_contato == " ":
+      print("\nO nome do novo contato não pode ser vazio!")
+      print("parou antes do segundo return")
+      return
+   
+   print( "parou depoi do segundo return")
+
+   lista_contatos[indice_contato_ajustado] ["nome"] = novo_contato
+   lista_contatos[indice_contato_ajustado] ["telefone"] = novo_telefone_contato
+   lista_contatos[indice_contato_ajustado] ["email"] = novo_email_contato
+   print(f"\nO contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
+      
    return
 
 #melhoria: nao permirtir marcar novamente um contato que já está marcado como favorito
@@ -90,7 +96,7 @@ while True:
    print("7. Apagar um contato da lista de contatos.")
    print("8. Sair da agenda.\n")
    
-   escolha = input("Digite sua escolha: ").strip()
+   escolha = input("Digite sua escolha: ").strip() # para não contar espaços vazios no início e no final
 
    if escolha == "1":
       nome_contato = input("\nDigite o nome do contato: ").strip()
@@ -103,11 +109,16 @@ while True:
    
    elif escolha == "3":
       ver_contatos(lista_contatos)
-      indice_contato = input("\nDigite o número do indice do contato que deseja atualizar: ")
-      novo_contato = input("Digite o novo nome do contato: ").strip()
-      novo_telefone_contato = input("Digite o novo telefone do contato: ").strip()
-      novo_email_contato = input("Digite o novo email do contato: ").strip()
-      editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_contato, novo_email_contato)
+      
+      indice_contato = int(input("\nDigite o número do indice do contato que deseja atualizar: "))
+      if indice_contato < 0 or indice_contato >= len(lista_contatos):
+         print("\nNúmero de contato inválido ou não existe.")
+      
+      else: 
+         novo_contato = input("Digite o novo nome do contato: ").strip()
+         novo_telefone_contato = input("Digite o novo telefone do contato: ").strip()
+         novo_email_contato = input("Digite o novo email do contato: ").strip()
+         editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_contato, novo_email_contato)
 
    elif escolha == "4":
       ver_contatos(lista_contatos)
