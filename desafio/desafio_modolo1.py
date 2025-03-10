@@ -29,7 +29,7 @@ def editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_c
          lista_contatos[indice_contato_ajustado] ["telefone"] = novo_telefone_contato
          lista_contatos[indice_contato_ajustado] ["email"] = novo_email_contato
          print(f"\nO contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
-         
+
    else:
       print("\nNúmero de contato inválido ou não existe.")
    return
@@ -90,7 +90,7 @@ while True:
    print("7. Apagar um contato da lista de contatos.")
    print("8. Sair da agenda.\n")
    
-   escolha = input("Digite sua escolha: ")
+   escolha = input("Digite sua escolha: ").strip()
 
    if escolha == "1":
       nome_contato = input("\nDigite o nome do contato: ").strip()
