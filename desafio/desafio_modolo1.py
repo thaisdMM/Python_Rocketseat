@@ -54,7 +54,10 @@ def editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_c
       lista_contatos[indice_contato_ajustado] ["nome"] = novo_contato
       lista_contatos[indice_contato_ajustado] ["telefone"] = novo_telefone_contato
       lista_contatos[indice_contato_ajustado] ["email"] = novo_email_contato
-      print(f"\nO contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
+      if not novo_contato or novo_contato == " ":
+         print("\nO nome do novo contato não pode ser vazio!")
+      else: 
+         print(f"\nO contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
    else:
       print("\nNúmero de contato inválido ou não existe.")
    return
@@ -129,9 +132,9 @@ while True:
    elif escolha == "3":
       ver_contatos(lista_contatos)
       indice_contato = input("\nDigite o número do indice do contato que deseja atualizar: ")
-      novo_contato = input("Digite o novo nome do contato: ")
-      novo_telefone_contato = input("Digite o novo telefone do contato: ")
-      novo_email_contato = input("Digite o novo email do contato: ")
+      novo_contato = input("Digite o novo nome do contato: ").strip()
+      novo_telefone_contato = input("Digite o novo telefone do contato: ").strip()
+      novo_email_contato = input("Digite o novo email do contato: ").strip()
       editar_contato(lista_contatos, indice_contato, novo_contato, novo_telefone_contato, novo_email_contato)
 
    elif escolha == "4":
