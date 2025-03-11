@@ -77,9 +77,10 @@ def desmarcar_contato_favorito(lista_contatos, indice_contato):
 
    if lista_contatos[indice_contato_ajustado] ["favorito"] == False:
       print("Não existem contatos favoritos para serem desmarcados.") 
-   else:
-      lista_contatos[indice_contato_ajustado] ["favorito"] = False
-      print(f"O contato {indice_contato} foi desmarcado como favorito!")   
+      return
+   
+   lista_contatos[indice_contato_ajustado] ["favorito"] = False
+   print(f"O contato {indice_contato} foi desmarcado como favorito!")   
 
    return
 
@@ -135,7 +136,14 @@ while True:
    #nao deixar marcar quando a lista está vazia
    elif escolha == "6":
       ver_contatos_favoritos(lista_contatos)
-      indice_contato = input("\nDigite o número do contato favorito que você deseja desmarcar: ").strip()
+      
+      if lista_contatos["favorito"] == False:
+         print("Não existem contatos favoritos para serem desmarcados.")
+         
+      
+      else: 
+         indice_contato = input("\nDigite o número do contato favorito que você deseja desmarcar: ").strip()
+      
       desmarcar_contato_favorito(lista_contatos, indice_contato)
       ver_contatos_favoritos(lista_contatos)
 
