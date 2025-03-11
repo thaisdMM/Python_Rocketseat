@@ -40,7 +40,6 @@ def editar_contato(lista_contatos, indice_contato):
    print(f"\nO contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
    return
 
-#melhoria: nao permirtir marcar novamente um contato que já está marcado como favorito
 def marcar_contato_favorito(lista_contatos, indice_contato):
    indice_contato_ajustado = int(indice_contato) -1
 
@@ -71,11 +70,17 @@ def ver_contatos_favoritos(lista_contatos):
 
 def desmarcar_contato_favorito(lista_contatos, indice_contato):
    indice_contato_ajustado = int(indice_contato) - 1
-   if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos):
-         lista_contatos[indice_contato_ajustado] ["favorito"] = False
-         print(f"O contato {indice_contato} foi desmarcado como favorito!")   
+
+   if indice_contato_ajustado < 0 or indice_contato_ajustado >= len(lista_contatos):
+      print("Número de contato inválido ou nao exite.")
+      return
+
+   if lista_contatos[indice_contato_ajustado] ["favorito"] == False:
+      print("Não existem contatos favoritos para serem desmarcados.") 
    else:
-      print("Número de contato inválido ou nao exite.")         
+      lista_contatos[indice_contato_ajustado] ["favorito"] = False
+      print(f"O contato {indice_contato} foi desmarcado como favorito!")   
+
    return
 
 def apagar_contato(lista_contatos, indice_contato):
