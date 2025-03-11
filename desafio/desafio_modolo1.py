@@ -19,36 +19,39 @@ def ver_contatos(lista_contatos):
    return
 
 def editar_contato(lista_contatos, indice_contato):
-    indice_contato_ajustado = (int(indice_contato) - 1)
+   indice_contato_ajustado = (int(indice_contato) - 1)
     
-    if indice_contato_ajustado < 0 or indice_contato_ajustado >= len(lista_contatos):
-        print("\nNúmero de contato inválido ou não existe.")
-        return
+   if indice_contato_ajustado < 0 or indice_contato_ajustado >= len(lista_contatos):
+      print("\nNúmero de contato inválido ou não existe.")
+      return
 
-    novo_contato = input("Digite o novo nome: ").strip()
-    if not novo_contato or novo_contato == " ":
-        print("\nO nome do novo contato não pode ser vazio!")
-        return
+   novo_contato = input("Digite o novo nome do contato: ").strip()
+   if not novo_contato or novo_contato == " ":
+      print("\nO nome do novo contato não pode ser vazio!")
+      return
 
-    novo_telefone_contato = input("Digite o novo telefone: ")
-    novo_email_contato = input("Digite o novo e-mail: ")
+   novo_telefone_contato = input("Digite o novo telefone: ")
+   novo_email_contato = input("Digite o novo e-mail: ")
 
-    
-    lista_contatos[indice_contato_ajustado]["nome"] = novo_contato
-    lista_contatos[indice_contato_ajustado]["telefone"] = novo_telefone_contato
-    lista_contatos[indice_contato_ajustado]["email"] = novo_email_contato
-    print(f"\nO contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
-   
+   lista_contatos[indice_contato_ajustado]["nome"] = novo_contato
+   lista_contatos[indice_contato_ajustado]["telefone"] = novo_telefone_contato
+   lista_contatos[indice_contato_ajustado]["email"] = novo_email_contato
+
+   print(f"\nO contato {indice_contato} foi atualizado para {novo_contato} com sucesso!")
+   return
 
 #melhoria: nao permirtir marcar novamente um contato que já está marcado como favorito
 def marcar_contato_favorito(lista_contatos, indice_contato):
    indice_contato_ajustado = int(indice_contato) -1
-   if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos):
+   if indice_contato_ajustado < 0 or indice_contato_ajustado >= len(lista_contatos):
+      print("\nNúmero de contato inválido ou não existe.")
+      return
+
+   else:
       lista_contatos[indice_contato_ajustado] ["favorito"] = True
       print(f"\nO contato {indice_contato} foi marcado como favorito!")
-   else:
-      print("\nNúmero de contato inválido ou não existe.")
-   return
+   
+   return   
 
 def ver_contatos_favoritos(lista_contatos):
    print("\nLista de contatos favoritos: ")
@@ -109,14 +112,12 @@ while True:
    
    elif escolha == "3":
       ver_contatos(lista_contatos)
-      
-      indice_contato = input("\nDigite o número do indice do contato que deseja atualizar: ")
-      
+      indice_contato = input("\nDigite o número do indice do contato que deseja atualizar: ").strip()
       editar_contato(lista_contatos, indice_contato)
 
    elif escolha == "4":
       ver_contatos(lista_contatos)
-      indice_contato = input("\nDigite o número do indice do contato que deseja marcar como favorito: ")
+      indice_contato = input("\nDigite o número do indice do contato que deseja marcar como favorito: ").strip()
       marcar_contato_favorito(lista_contatos, indice_contato)
 
    elif escolha == "5":
@@ -125,13 +126,13 @@ while True:
    #nao deixar marcar quando a lista está vazia
    elif escolha == "6":
       ver_contatos_favoritos(lista_contatos)
-      indice_contato = input("\nDigite o número do contato favorito que você deseja desmarcar: ")
+      indice_contato = input("\nDigite o número do contato favorito que você deseja desmarcar: ").strip()
       desmarcar_contato_favorito(lista_contatos, indice_contato)
       ver_contatos_favoritos(lista_contatos)
 
    elif escolha == "7":
       ver_contatos(lista_contatos)
-      indice_contato = input("Digite o número do contato que deseja apagar: ")
+      indice_contato = input("Digite o número do contato que deseja apagar: ").strip()
       apagar_contato(lista_contatos, indice_contato)
 
    elif escolha == "8":
