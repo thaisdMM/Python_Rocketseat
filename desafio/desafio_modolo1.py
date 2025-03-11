@@ -43,9 +43,13 @@ def editar_contato(lista_contatos, indice_contato):
 #melhoria: nao permirtir marcar novamente um contato que já está marcado como favorito
 def marcar_contato_favorito(lista_contatos, indice_contato):
    indice_contato_ajustado = int(indice_contato) -1
+
    if indice_contato_ajustado < 0 or indice_contato_ajustado >= len(lista_contatos):
       print("\nNúmero de contato inválido ou não existe.")
       return
+
+   if lista_contatos[indice_contato_ajustado] ["favorito"] == True:
+      print(f"O número {indice_contato} selecionado já é um contato favorito.")
 
    else:
       lista_contatos[indice_contato_ajustado] ["favorito"] = True
