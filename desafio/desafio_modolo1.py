@@ -123,12 +123,18 @@ while True:
    elif escolha == "3":
       ver_contatos(lista_contatos)
       indice_contato = input("\nDigite o número do indice do contato que deseja atualizar: ").strip()
-      editar_contato(lista_contatos, indice_contato)
+      if not indice_contato.isdigit():
+         print("\nErro: o índice do contato deve ser um valor numérico")
+      else:
+         editar_contato(lista_contatos, indice_contato)
 
    elif escolha == "4":
       ver_contatos(lista_contatos)
       indice_contato = input("\nDigite o número do indice do contato que deseja marcar como favorito: ").strip()
-      marcar_contato_favorito(lista_contatos, indice_contato)
+      if not indice_contato.isdigit():
+         print("\nErro: o índice do contato deve ser um valor numérico")
+      else:
+         marcar_contato_favorito(lista_contatos, indice_contato)
 
    elif escolha == "5":
       ver_contatos_favoritos(lista_contatos)
@@ -138,13 +144,19 @@ while True:
       ver_contatos_favoritos(lista_contatos)
       
       indice_contato = input("\nDigite o número do contato favorito que você deseja desmarcar: ").strip()
-      desmarcar_contato_favorito(lista_contatos, indice_contato)
-      ver_contatos_favoritos(lista_contatos)
+      if not indice_contato.isdigit():
+         print("\nErro: o índice do contato deve ser um valor numérico")
+      else:
+         desmarcar_contato_favorito(lista_contatos, indice_contato)
+         ver_contatos_favoritos(lista_contatos)
 
    elif escolha == "7":
       ver_contatos(lista_contatos)
       indice_contato = input("Digite o número do contato que deseja apagar: ").strip()
-      apagar_contato(lista_contatos, indice_contato)
+      if not indice_contato.isdigit():
+         print("\nErro: o índice do contato deve ser um valor numérico")
+      else:
+         apagar_contato(lista_contatos, indice_contato)
 
    elif escolha == "8":
       break
