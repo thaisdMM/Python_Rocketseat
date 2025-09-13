@@ -1,3 +1,6 @@
+import random
+
+
 # Classes:
 # Personagem: classe mãe
 # Heroi: contralado pelo usuário
@@ -28,7 +31,8 @@ class Personagem:
             self.__vida = 0
 
     def atacar(self, alvo):
-        dano = self.__nivel * 2
+        # dano: baseado no nivel
+        dano = random.randint(self.get_nivel() * 2, self.get_nivel() * 4)
         alvo.receber_ataque(dano)
         print(f"\n{self.get_nome()} atacou {alvo.get_nome()} e causou {dano} de dano!")
 
@@ -46,7 +50,8 @@ class Heroi(Personagem):
         return f"{super().exibir_detalhes()}\nHabilidade: {self.get_habilidade()}\n"
 
     def ataque_especial(self, alvo):
-        dano = self.get_nivel() * 5  # dano aumentando
+        # dano aumentando
+        dano = random.randint(self.get_nivel() * 5, self.get_nivel() * 8)
         alvo.receber_ataque(dano)
         print(
             f"\n{self.get_nome()} usou a habilidade especial {self.get_habilidade()} em {alvo.get_nome()} e causou {dano} de dano!"
@@ -70,8 +75,10 @@ class Jogo:
     """Classe orquestradora do jogo"""
 
     def __init__(self):
-        self.heroi = Heroi(nome="Asta", vida=100, nivel=5, habilidade="Super Força")
-        self.inimigo = Inimigo(nome="Morcego", vida=80, nivel=5, tipo="Voador")
+        self.heroi = Heroi(
+            nome="Asta", vida=100, nivel=5, habilidade="Super Força anti-magia"
+        )
+        self.inimigo = Inimigo(nome="Lúcifer", vida=80, nivel=5, tipo="Demônio")
 
     def iniciar_batalha(self):
         """Fazer a gestão da batalha em turnos"""
