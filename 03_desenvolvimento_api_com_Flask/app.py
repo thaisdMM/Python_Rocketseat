@@ -50,13 +50,23 @@ def get_tasks():
     return jsonify(outptut)
 
 
+# parametro de rota id -> <int:id>
 @app.route("/tasks/<int:id>", methods=["GET"])
 def get_task(id):
-    #task = None
+    # task = None
     for t in tasks:
         if t.id == id:
             return jsonify(t.to_dict())
     return jsonify({"message": "Não foi possível encontrar a atividade"}), 404
+
+
+# # parâmetros de rota - teste para aprendizado: -> variavel entre <>
+# @app.route("/user/<int:username_id>")
+# def show_user(username_id):
+#     print(username_id)
+#     # #retorna uma str(default), se quiser retornar outro valor tem que converter ao passar a variavel
+#     print(type(username_id))
+#     return f"{username_id}"
 
 
 # modo de desenvolvimento local
