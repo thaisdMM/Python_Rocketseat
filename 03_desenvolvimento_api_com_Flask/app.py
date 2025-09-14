@@ -14,7 +14,7 @@ tasks = []
 task_id_control = 1
 
 
-# Create - Olha a criação da tarefa no arquivo da aula no https://editor.swagger.io/
+# CREATE - Olha a criação da tarefa no arquivo da aula no https://editor.swagger.io/
 @app.route("/tasks", methods=["POST"])
 def create_task():
     # global para pegar a variavel global fora da função
@@ -32,7 +32,25 @@ def create_task():
     task_id_control += 1
     tasks.append(new_task)
     print(tasks)
+
     return jsonify({"message": "Nova tarefa criada com sucesso"})
+
+
+# READ - ver a listagem das tarefas GET no arquivo da aula no https://editor.swagger.io/
+# retorna objetos de Task, por isso depois tem que usar o to_dict
+@app.route("/tasks", methods=["GET"])
+def get_tasks():
+    task_list = [task.to_dict() for task in tasks]
+
+    # Pode ser feito o get da task do modo abaixo também
+    # task_liste[]
+    #  for task in tasks:
+    #     task_list.append(task.to_dict())
+    outptut = {
+        "tasks": task_list,
+        "total_tasks": 0,
+    }
+    return jsonify(outptut)
 
 
 # modo de desenvolvimento local
