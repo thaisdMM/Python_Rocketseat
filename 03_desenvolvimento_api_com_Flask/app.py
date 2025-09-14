@@ -33,7 +33,7 @@ def create_task():
     tasks.append(new_task)
     print(tasks)
 
-    return jsonify({"message": "Nova tarefa criada com sucesso"})
+    return jsonify({"message": "Nova tarefa criada com sucesso", "id": new_task.id})
 
 
 # READ - ver a listagem das tarefas GET no arquivo da aula no https://editor.swagger.io/
