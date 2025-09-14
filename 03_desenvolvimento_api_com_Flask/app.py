@@ -46,11 +46,17 @@ def get_tasks():
     # task_liste[]
     #  for task in tasks:
     #     task_list.append(task.to_dict())
-    outptut = {
-        "tasks": task_list,
-        "total_tasks": 0,
-    }
+    outptut = {"tasks": task_list, "total_tasks": len(task_list)}
     return jsonify(outptut)
+
+
+@app.route("/tasks/<int:id>", methods=["GET"])
+def get_task(id):
+    #task = None
+    for t in tasks:
+        if t.id == id:
+            return jsonify(t.to_dict())
+    return jsonify({"message": "Não foi possível encontrar a atividade"}), 404
 
 
 # modo de desenvolvimento local
